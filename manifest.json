@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+
+  "name": "connectusers",
+  "description": "An extension to connect Users.",
+  "version": "1.0",
+  "omnibox": { "keyword" : "yeah" },
+  "background": {
+        "persistent": true,
+        "matches": ["*://*.linkedin.com/*"],
+        "scripts": ["js/jquery.js","js/background.js"]
+    },
+    "content_scripts": [{
+        "matches": ["*://*.linkedin.com/*"],
+        "js":      ["js/jquery.js","js/content.js"]
+    }],
+
+  "permissions": [
+    "storage",
+  	"*://*.angel.co/*",
+    "*://*.linkedin.com/*",
+    "tabs",
+    "activeTab"
+//    "https://in.linkedin.com/"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "devtools_page": "devtools.html"
+  // "app": {
+  //   "urls": [
+  //     "http://mysubdomain.example.com/"
+  //   ],
+  //   "launch": {
+  //     "web_url": "http://mysubdomain.example.com/"
+  //   }
+  // }
+}
